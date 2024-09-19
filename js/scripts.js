@@ -1,12 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // кнопка перехода на следующий шаг
+    btnStepNext = document.querySelectorAll(".btn-step-next");
+
+    // поле ввода
+    const mainInput = document.querySelector(".form-input")
+    
     // увеличение инпута в зависимости от текста
     function commentResize(textarea) {
         textarea.style.height = "auto";
         textarea.style.height = textarea.scrollHeight + "px";
     }
-    const mainInput = document.querySelector(".form-input")
+    function checkValue(textarea) {
+        if (textarea.value.length >= 2) {
+            return (btnStepNext[0].disabled = false);
+        } else {
+            return (btnStepNext[0].disabled = true);
+        }
+    }
+    
     mainInput.addEventListener('input', function () {
         commentResize(this);
+        checkValue(this);
     });
 
     // кнопки для инпута
@@ -17,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let content = item.innerHTML;
             mainInput.innerHTML += content + "&nbsp;";
             commentResize(mainInput);
+            checkValue(mainInput);
             item.remove()
         })
     });
@@ -64,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    document.querySelectorAll('.btn-step-next').forEach(button => {
+    btnStepNext.forEach(button => {
         button.addEventListener('click', function (e) {
             handleStep();
         });
