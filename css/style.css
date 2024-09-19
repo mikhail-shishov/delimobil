@@ -35,6 +35,10 @@ body {
     margin: 0;
 }
 
+.main {
+    margin: 40px 0;
+}
+
 img {
     max-width: 100%;
 }
@@ -53,6 +57,17 @@ img {
     color: white;
     text-transform: uppercase;
     font-size: 40px;
+    margin: 15px 0;
+}
+
+.text {
+    font-size: 22px;
+    color: var(--white-80);
+    margin: 15px 0;
+}
+
+.form {
+    margin-top: 40px;
 }
 
 .form-input-wrap {
@@ -108,9 +123,13 @@ img {
     flex-basis: 30%;
     cursor: pointer;
     text-align: left;
-    display: inline-flex;
     align-items: flex-start;
     outline: none;
+    display: none;
+}
+
+.form-helper-btn:nth-child(-n+5) {
+    display: inline-flex;
 }
 
 .form-helper-btn:first-child {
@@ -155,4 +174,65 @@ img {
 
 .step.is-active {
     display: block;
+}
+
+@media (max-width: 767px) {
+    body {
+        background-image: url(../img/bg-mobile.jpg);
+        background-position: center right;
+    }
+
+    .logo {
+        width: 200px;
+        margin-top: 10px;
+    }
+
+    .main {
+        margin: 20px 0;
+    }
+
+    .form-helper-wrap {
+        margin: 20px 0 30px;
+    }
+
+    .form-input-wrap {
+        width: 100%;
+    }
+
+    .form {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn {
+        width: 100%;
+    }
+
+    .h1, .h2 {
+        color: white;
+        text-transform: uppercase;
+        font-size: 32px;
+        margin: 10px 0;
+    }
+
+    .text {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    .form-helper-btn {
+        padding: 10px 12px;
+        flex-basis: 40%;
+        font-size: 14px;
+    }
+
+    .form-input {
+        font-size: 16px;
+        min-height: 17px;
+    }
+
+    .form-input-wrap {
+        padding: 12px 22px;
+    }
 }

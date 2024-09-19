@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         commentResize(this);
     });
 
-    // шаги
-    const steps = document.querySelectorAll(".step");
-
     // кнопки для инпута
     const suggestions = document.querySelectorAll(".form-helper-btn")
     suggestions.forEach(item => {
@@ -21,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
             let content = item.innerHTML;
             mainInput.innerHTML += content + "&nbsp;";
             commentResize(mainInput);
+            item.remove()
         })
     });
+
+    // шаги
+    const steps = document.querySelectorAll(".step");
+    const stepNext = document.querySelectorAll(".btn-step-next");
 })
