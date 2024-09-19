@@ -32,6 +32,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
+    margin: 0;
 }
 
 img {
@@ -72,6 +73,7 @@ img {
     resize: none;
     overflow: hidden;
     padding: 0;
+    min-height: 23px;
 }
 
 .form-input-mic {
@@ -97,7 +99,7 @@ img {
 
 .form-helper-btn {
     background-color: var(--white-16);
-    border: 1px solid white;
+    border: 1px solid var(--white-16);
     color: var(--white-80);
     padding: 14px 16px;
     border-radius: 20px;
@@ -142,6 +144,14 @@ img {
     color: black;
 }
 
-.generate-load {
+.generate-loading {
     text-align: center;
+}
+
+.step {
+    display: none;
+}
+
+.step.is-active {
+    display: block;
 }
