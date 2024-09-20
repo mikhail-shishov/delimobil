@@ -200,7 +200,7 @@ img {
     left: 0;
     width: 0;
     height: 100%;
-    animation: loading-bar 10s forwards linear;
+    animation: loading-bar 25s forwards linear;
 }
 
 .is-active .generate-loader-progress:after {
@@ -215,7 +215,7 @@ img {
     position: absolute;
     top: -15px;
     left: -15px;
-    animation: loading-bar-star 10s forwards linear;
+    animation: loading-bar-star 25s forwards linear;
 }
 
 .generate-percent {

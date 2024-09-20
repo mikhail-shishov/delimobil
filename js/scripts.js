@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.body.classList.add("bg-load");
                 const percentage = document.querySelector('.generate-percent span');
                 let currentNumber = 0;
-                const duration = 10000; // 10 секунд
+                const duration = 25000; // 25 секунд
                 const increment = 100 / (duration / 100); // 100ms interval
 
                 const interval = setInterval(() => {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         nextStep.classList.remove('is-active');
                         thirdStep.classList.add('is-active');
                     }
-                }, 10000); // 10 секунд на шаг
+                }, 25000); // 10 секунд на шаг
             } else if ((Array.from(steps).indexOf(nextStep) === 1) || (Array.from(steps).indexOf(nextStep) === 2)) {
                 document.body.classList.add("bg-load");
             } else {
