@@ -1,10 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // перемешивание подсказок в начале
+    const suggestionsWrap = document.querySelector(".form-helper-wrap");
+    const suggestions = document.querySelectorAll(".form-helper-btn");
+
+    function shuffle() {
+        const shuffledSuggestions = Array.from(suggestions);
+        shuffledSuggestions.sort(() => Math.random() - 0.5);
+        suggestionsWrap.innerHTML = '';
+        shuffledSuggestions.forEach(item => suggestionsWrap.appendChild(item));
+    }
+    shuffle();
+
     // кнопка перехода на следующий шаг
     btnStepNext = document.querySelectorAll(".btn-step-next");
 
     // поле ввода
     const mainInput = document.querySelector(".form-input")
-    
+
     // увеличение инпута в зависимости от текста
     function commentResize(textarea) {
         textarea.style.height = "auto";
@@ -17,23 +29,22 @@ document.addEventListener("DOMContentLoaded", function () {
             return (btnStepNext[0].disabled = true);
         }
     }
-    
+
     mainInput.addEventListener('input', function () {
         commentResize(this);
         checkValue(this);
     });
 
     // кнопки для инпута
-    const suggestions = document.querySelectorAll(".form-helper-btn")
     suggestions.forEach(item => {
         item.addEventListener("click", function (e) {
             e.preventDefault();
             let content = item.innerHTML;
-            mainInput.innerHTML += content + "&nbsp;";
+            mainInput.value += content + " ";
             commentResize(mainInput);
             checkValue(mainInput);
-            item.remove()
-        })
+            item.remove();
+        });
     });
 
     // шаги
@@ -94,8 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // });
             // steps[0].classList.add('is-active')
         })
-    })    
-    
+    })
+
     // отправка данных в форме
     document.querySelector('.form').addEventListener('submit', function (e) {
         e.preventDefault();
